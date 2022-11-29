@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WANNA VFR mobile iframe integration example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <style>
+      body {
+          overflow: hidden;
+      }
+
+      .modal {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+      }
+
+      .hidden {
+          display: none;
+      }
+
+      .modal__iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+      }
+
+      .modal__close {
+          color: white;
+          position: absolute;
+          top: 18px;
+          right: 10px;
+          background: transparent;
+          border: none;
+      }
+
+      .modal__close:after {
+          display: inline-block;
+          content: "\00d7";
+          font-size: 36px;
+      }
+  </style>
+</head>
+<body>
+
+<button id="tryOnButton">Try on</button>
+
+<div id="tryOnDialog" role="dialog" class="modal hidden">
+  <iframe id="wannaIframe"
+          allow="camera"
+          class="modal__iframe">
+  </iframe>
+
+  <button id="closeButton" class="modal__close"></button>
+</div>
+
+<script>
+  const iframe = document.getElementById('wannaIframe')
+  const dialog = document.getElementById('tryOnDialog')
+  const closeButton = document.getElementById('closeButton')
+  const tryOnButton = document.getElementById('tryOnButton')
+
+  // replace this link with the link to your Fitting Room
+  const vfrLink = 'https://demo.ar.wanna.fashion'
+
+  tryOnButton.addEventListener('click', () => {
+    if (!iframe.src) {
+      iframe.src = vfrLink
+    }
+    dialog.classList.remove('hidden')
+  })
+
+  closeButton.addEventListener('click', () => {
+    dialog.classList.add('hidden')
+  })
+</script>
+</body>
+</html>

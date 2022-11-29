@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WANNA VFR desktop example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://github.com/nayuki/QR-Code-generator/releases/download/v1.8.0/qrcodegen-v1.8.0-es5.js"></script>
+
+  <style>
+      body {
+          overflow: hidden;
+      }
+
+      .wrapper {
+          max-width: 370px;
+      }
+
+      .try-on-section {
+          display: flex;
+          padding: 4px;
+          background: #E3E3E373;
+          justify-content: space-between;
+      }
+
+      .try-on-section__content {
+          padding: 4px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+
+      .try-on-section__qr {
+          padding: 4px;
+          width: 100px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <section class="try-on-section">
+    <div class="try-on-section__content">
+      <b>Try On in AR</b>
+      <small>Find out how it looks in augmented reality</small>
+    </div>
+    <div class="try-on-section__qr">
+      <svg id="qrCode" xmlns="http://www.w3.org/2000/svg" stroke="none">
+        <rect width="100%" height="100%" fill="#FFF" />
+        <path d="" fill="#000" />
+      </svg>
+    </div>
+  </section>
+</div>
+
+<script>
+  /**
+   * Converts qrcodegen.QrCode into a string of squares to be used as a source in path element
+   *
+   * @param qr - qrcodegen.QrCode
+   * @param border - the size of border
+   * @returns {string} - the path element data source
+   */
+  function toSvgString(qr, border) {
+    const parts = []
+
+    for (let y = 0; y < qr.size; y++) {
+      for (let x = 0; x < qr.size; x++) {
+        if (qr.getModule(x, y)) {
+          // draw a square -- the black squares in qr-code
+          parts.push(`M${x + border},${y + border}h1v1h-1z`)
+        }
+      }
+    }
+
+    return parts.join(' ')
+  }
+
+  // replace this link with the link to your Fitting Room
+  const vfrLink = 'https://demo.ar.wanna.fashion'
+
+  const border = 1
+  const qr = qrcodegen.QrCode.encodeText(vfrLink, qrcodegen.QrCode.Ecc.MEDIUM)
+
+  const svg = document.getElementById('qrCode')
+  // set size for qr-code svg element
+  svg.setAttribute('viewBox', `0 0 ${qr.size + border * 2} ${qr.size + border * 2}`)
+  // set generated qr-code to path element of svg
+  svg.children[1].setAttribute('d', toSvgString(qr, border))
+</script>
+</body>
+</html>
