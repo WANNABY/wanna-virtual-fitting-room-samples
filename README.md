@@ -17,7 +17,7 @@ In this tutorial, you will be integrating a fitting room that was already config
 * a link to your personal fitting room
 * the list of model IDs that will be tried on (you will use it to select which models to display and which one to start with)
 
-Virtual Fitting Room could only be comfortably used on a smartphone. You probably already have different versions of your website for desktop and mobile devices, but if not, you will need to implement the selection on your side. For desktop version we recommend displaying a QR code with the link to smoothly guide the user to the try-on page.
+Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-build-in-an-iframe). You probably already have different versions of your website for desktop and mobile devices, but if not, you will need to implement the selection on your side. For [desktop version](#desktop-display-a-qr-code) we recommend displaying a QR code with the link to smoothly guide the user to the try-on page.
 
 ## Mobile: build in an iframe
 
@@ -37,9 +37,9 @@ Create an iframe element on the page and put the link to your Virtual Fitting Ro
 
 Add query parameters to the link to configure the optional settings:
 
-	* `modelid` - a comma-separated list of model identifiers for the models that should be displayed for try-on.
-	* `startwithid` - the identifier of the model that should be loaded first. Note that the order of the models won't change.
-	* `locale` - the two-letter code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
+	* `modelid` — a comma-separated list of model identifiers for the models that should be displayed for try-on.
+	* `startwithid` — the identifier of the model that should be loaded first. Note that the order of the models won't change.
+	* `locale` — the two-letter code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
 
 For example, the following link will show only two models to be tried on, start with the second one, and display the interface and page metadata in German: 
 
@@ -62,14 +62,14 @@ window.addEventListener('message', event => {
 
 The `data` property of event has following properties:
 
-- `event` (type `string`) - the name of the event
-- `data` (type `object`) - the event data
+- `event` (type `string`) — the name of the event
+- `data` (type `object`) — the event data
 
 Virtual Fitting Room only raises one kind of an event:
 
 | Event name  | Description                                   | Data properties                                  |
 |-------------|-----------------------------------------------|--------------------------------------------------|
-| MODEL_SET   | The model that is currently loaded for try-on | `modelId` (type `string`) - the model identifier |
+| MODEL_SET   | The model that is currently loaded for try-on | `modelId` (type `string`) — the model identifier |
 
 
 Consult [our demo sample](samples/iframe_mobile.html) which shows the simplest way of loading the fitting room as a pop-up modal that opens on button click.
