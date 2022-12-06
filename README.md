@@ -76,4 +76,4 @@ Consult [our demo sample](samples/iframe_mobile.html) which shows the simplest w
 
 ## Desktop: display a QR code
 
-On the product page from which you would like the client to start virtual try-on, display a QR code that the client can scan with their phone and go directly to virtual fitting room on mobile. [Our sample](samples/desktop.html) uses the open-source [QR-Code-generator](https://github.com/nayuki/QR-Code-generator) library for demo purposes. Choose any QR code generating tool that suits you.
+On the product page from which you would like the client to start virtual try-on, display a QR code that the client can scan with their phone and go directly to Virtual Fitting Room on mobile. [Our sample](samples/desktop.html) uses the open-source [QR-Code-generator](https://github.com/nayuki/QR-Code-generator) library for demo purposes. Choose any QR code generating tool that suits you.
