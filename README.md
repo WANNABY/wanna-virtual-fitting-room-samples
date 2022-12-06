@@ -1,6 +1,6 @@
 # WANNA Virtual Fitting Room
 
-WANNA Virtual Fitting Room (VFR) is a low-code solution with a customizable prebuilt UI. To integrate it into your website, you only need to add an iframe to the page. Let's walk through the process.
+WANNA Virtual Fitting Room (VFR) is a low-code solution with a customizable prebuilt UI. To integrate it into your website, you only need to add an iframe to the page.
 
 <!-- TOC -->
 - [Prerequisites](#prerequisites)
@@ -21,7 +21,7 @@ Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-bu
 
 ## Mobile: build in an iframe
 
-The essential part of integration is simply to load Virtual Fitting Room into an iframe on the page. Choose the look and user experience you would prefer. There are three main options:
+The essential part of integration is simply to load Virtual Fitting Room into an iframe on the page or just open it in a separate page. Choose the look and user experience you would prefer. There are three main options:
 
 * **[recommended]** show the fitting room in a pop-up modal that overlays the page from which it was started: </br> ![Virtual Fitting Room loaded as a modal](images/integration_modal_popup.png)
 * redirect to another page with the fullscreen view of the fitting room: </br> ![Virtual Fitting Room fullscreen view](images/integration_fullscreen.png)
@@ -31,7 +31,9 @@ The essential part of integration is simply to load Virtual Fitting Room into an
 **Note:** As the fitting room is hosted on WANNA servers, you will need to disable same-origin policy on the page where you're loading the fitting room, so that it can be displayed correctly. For security reasons, disable the policy only on the one page you are using for the fitting room.
 -->
 
-Create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute.
+We recommend the first option, and it is also illustrated by [our demo sample](samples/iframe_mobile.html). Let's walk through the process.
+
+First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute.
 
 ### Iframe settings
 
@@ -71,8 +73,7 @@ Virtual Fitting Room only raises one kind of an event:
 |---------------|------------------------------------------------|--------------------------------------------------|
 | `MODEL_SET`   | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
 
-
-Consult [our demo sample](samples/iframe_mobile.html) which shows the simplest way of loading the fitting room as a pop-up modal that opens on button click.
+**Important:** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID using this method.
 
 ## Desktop: display a QR code
 
