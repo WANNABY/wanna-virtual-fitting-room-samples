@@ -67,9 +67,9 @@ The `data` property of event has following properties:
 
 Virtual Fitting Room only raises one kind of an event:
 
-| Event name  | Description                                   | Data properties                                  |
-|-------------|-----------------------------------------------|--------------------------------------------------|
-| MODEL_SET   | The model that is currently loaded for try-on | `modelId` (type `string`) — the model identifier |
+| Event name    | Description                                    | Data properties                                  |
+|---------------|------------------------------------------------|--------------------------------------------------|
+| `MODEL_SET`   | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
 
 
 Consult [our demo sample](samples/iframe_mobile.html) which shows the simplest way of loading the fitting room as a pop-up modal that opens on button click.
