@@ -45,7 +45,7 @@ Add query parameters to the link to configure the optional settings:
 
 For example, the following link will show only two models to be tried on, start with the second one, and display the interface and page metadata in German: 
 
-`https:\\demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&locale=de`
+`https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&locale=de`
 
 ### Get the current model ID
 
