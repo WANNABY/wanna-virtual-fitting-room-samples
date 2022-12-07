@@ -23,25 +23,25 @@ Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-bu
 
 The essential part of integration is simply to load Virtual Fitting Room into an iframe on the page or just open it in a separate page. Choose the look and user experience you would prefer. There are three main options:
 
-* **[recommended]** show the fitting room in a pop-up modal that overlays the page from which it was started: </br> ![Virtual Fitting Room loaded as a modal](images/integration_modal_popup.png)
+* **[recommended]** build the fitting room into your page, leaving the original header and footer in place: </br> ![Virtual Fitting Room built into the source page](images/integration_partscreen.png)
+* show the fitting room in a pop-up modal that overlays the page from which it was started: </br> ![Virtual Fitting Room loaded as a modal](images/integration_modal_popup.png)
 * redirect to another page with the fullscreen view of the fitting room: </br> ![Virtual Fitting Room fullscreen view](images/integration_fullscreen.png)
-* build the fitting room into your page, leaving the original header and footer in place: </br> ![Virtual Fitting Room built into the source page](images/integration_partscreen.png)
 
-<!--
-**Note:** As the fitting room is hosted on WANNA servers, you will need to disable same-origin policy on the page where you're loading the fitting room, so that it can be displayed correctly. For security reasons, disable the policy only on the one page you are using for the fitting room.
--->
+We recommend the first option, as it ensures the best user experience and more likely conversion of try-on into purchase. Let's walk through the process.
 
-We recommend the first option, and it is also illustrated by [our demo sample](samples/iframe_mobile.html). Let's walk through the process.
+First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
 
-First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute.
+```javascript
+iframe.src = vfrLink
+```
 
 ### Iframe settings
 
 Add query parameters to the link to configure the optional settings:
 
-	* `modelid` — a comma-separated list of model identifiers for the models that should be displayed for try-on.
-	* `startwithid` — the identifier of the model that should be loaded first. Note that the order of the models won't change.
-	* `locale` — the two-letter code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
+* `modelid` — a comma-separated list of model identifiers for the models that should be displayed for try-on.
+* `startwithid` — the identifier of the model that should be loaded first. Note that the order of the models won't change.
+* `locale` — the two-letter code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
 
 For example, the following link will show only two models to be tried on, start with the second one, and display the interface and page metadata in German: 
 
@@ -49,7 +49,7 @@ For example, the following link will show only two models to be tried on, start 
 
 ### Get the current model ID
 
-If you would like to prompt the user to buy or add to favorites the model they're trying on, you will need to get its model ID from Virtual Fitting Room. To do that, listen to events from the fitting room and get the ID of the model that is currently loaded. Here's a code snippet that shows how to subscribe to events:
+It should be easy for the user to buy or add to favorites the model they're trying on. You may want to add, for example, a "shop now" button to the page footer. To do that, get the model ID from Virtual Fitting Room. To do that, listen to events from the fitting room and get the ID of the model that is currently loaded. Here's a code snippet that shows how to subscribe to events:
 
 ```javascript
 window.addEventListener('message', event => {
@@ -74,6 +74,8 @@ Virtual Fitting Room only raises one kind of an event:
 | `MODEL_SET`   | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
 
 **Important:** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID using this method.
+
+Consult also [our demo sample](samples/iframe_mobile.html) which shows the simplest way of loading the fitting room as a pop-up modal that opens on button click.
 
 ## Desktop: display a QR code
 
