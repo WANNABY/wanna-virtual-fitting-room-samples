@@ -4,7 +4,7 @@ WANNA Virtual Fitting Room (VFR) is a low-code solution with a customizable preb
 
 <!-- TOC -->
 - [Prerequisites](#prerequisites)
-- [Mobile: build in an iframe](#mobile-build-in-an-iframe)
+- [Mobile: show the fitting room](#mobile-show-the-fitting-room)
 	- [Iframe settings](#iframe-settings)
 	- [Get the current model ID](#get-the-current-model-id)
 - [Desktop: display a QR code](#desktop-display-a-qr-code)
