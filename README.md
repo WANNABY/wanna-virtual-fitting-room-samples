@@ -19,7 +19,7 @@ In this tutorial, you will be integrating a fitting room that was already config
 
 Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-build-in-an-iframe). You probably already have different versions of your website for desktop and mobile devices, but if not, you will need to implement the selection on your side. For [desktop version](#desktop-display-a-qr-code) we recommend displaying a QR code with the link to smoothly guide the user to the try-on page.
 
-## Mobile: build in an iframe
+## Mobile: show the fitting room
 
 The essential part of integration is simply to load Virtual Fitting Room into an iframe on the page or just open it in a separate page. Choose the look and user experience you would prefer. There are three main options:
 
@@ -41,7 +41,7 @@ Add query parameters to the link to configure the optional settings:
 
 * `modelid` — a comma-separated list of model identifiers for the models that should be displayed for try-on.
 * `startwithid` — the identifier of the model that should be loaded first. Note that the order of the models won't change.
-* `locale` — the two-letter code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
+* `locale` — the locale code for the Virtual Fitting Room UI language and metadata. If the specified locale isn't available, the English locale will be loaded instead.
 
 For example, the following link will show only two models to be tried on, start with the second one, and display the interface and page metadata in German: 
 
@@ -49,7 +49,18 @@ For example, the following link will show only two models to be tried on, start 
 
 ### Get the current model ID
 
-It should be easy for the user to buy or add to favorites the model they're trying on. You may want to add, for example, a "shop now" button to the page footer. To do that, get the model ID from Virtual Fitting Room. To do that, listen to events from the fitting room and get the ID of the model that is currently loaded. Here's a code snippet that shows how to subscribe to events:
+It should be easy for the user to buy or add to favorites the model they're trying on. You may want to add, for example, an "Add to cart" button to the page footer. To do that, you will need to get in real time the identifier of the model that is being tried on now. Listen to events from the fitting room. Virtual Fitting Room raises the `MODEL_SET` event that contains the ID of the model that is currently loaded. The `data` property of event has following properties:
+
+- `event` (type `string`) — the name of the event
+- `data` (type `object`) — the event data
+
+Virtual Fitting Room only raises one kind of an event:
+
+| Event name    | Description                                    | Data properties                                  |
+|---------------|------------------------------------------------|--------------------------------------------------|
+| `MODEL_SET`   | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
+
+Here's a code snippet that shows how to subscribe to events:
 
 ```javascript
 window.addEventListener('message', event => {
@@ -61,17 +72,6 @@ window.addEventListener('message', event => {
   }
 })
 ```
-
-The `data` property of event has following properties:
-
-- `event` (type `string`) — the name of the event
-- `data` (type `object`) — the event data
-
-Virtual Fitting Room only raises one kind of an event:
-
-| Event name    | Description                                    | Data properties                                  |
-|---------------|------------------------------------------------|--------------------------------------------------|
-| `MODEL_SET`   | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
 
 **Important:** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID using this method.
 
