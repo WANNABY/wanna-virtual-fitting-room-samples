@@ -29,9 +29,20 @@ The essential part of integration is simply to load Virtual Fitting Room into an
 
 We recommend the first option, as it ensures the best user experience and more likely conversion of try-on into purchase. Let's walk through the process.
 
+**Important!** The iframe should have camera access. Specify it in the `allow` attribute, and the browser will ask the user for permission to access the camera.
+
 First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
 
+```html
+<div>
+	<iframe id="fittingRoom"
+		    allow="camera">
+	</iframe>
+</div>
+```
+
 ```javascript
+const iframe = document.getElementById('fittingRoom')
 iframe.src = vfrLink
 ```
 
