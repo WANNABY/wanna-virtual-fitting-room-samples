@@ -84,7 +84,7 @@ window.addEventListener('message', event => {
 })
 ```
 
-**Important:** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID using this method.
+**Important!** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID using this method.
 
 Consult also [our demo sample](samples/iframe_mobile.html) which shows the simplest way of loading the fitting room as a pop-up modal that opens on button click.
 
