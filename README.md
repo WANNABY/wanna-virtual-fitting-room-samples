@@ -36,7 +36,7 @@ First, create an iframe element on the page and put the link to your Virtual Fit
 ```html
 <div>
     <iframe id="fittingRoom"
-        allow="camera">
+            allow="camera">
     </iframe>
 </div>
 ```
