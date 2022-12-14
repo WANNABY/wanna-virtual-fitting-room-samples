@@ -17,7 +17,7 @@ In this tutorial, you will be integrating a fitting room that was already config
 * a link to your personal fitting room
 * the list of model IDs that will be tried on (you will use it to select which models to display and which one to start with)
 
-Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-build-in-an-iframe). You probably already have different versions of your website for desktop and mobile devices, but if not, you will need to implement the selection on your side. For [desktop version](#desktop-display-a-qr-code) we recommend displaying a QR code with the link to smoothly guide the user to the try-on page.
+Virtual Fitting Room could only be comfortably used [on a smartphone](#mobile-show-the-fitting-room). You probably already have different versions of your website for desktop and mobile devices, but if not, you will need to implement the selection on your side. For [desktop version](#desktop-display-a-qr-code) we recommend displaying a QR code with the link to smoothly guide the user to the try-on page.
 
 ## Mobile: show the fitting room
 
