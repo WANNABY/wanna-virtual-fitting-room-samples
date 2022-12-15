@@ -33,16 +33,10 @@ We recommend the first option, as it ensures the best user experience and more l
 
 First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
 
-```html
-<div>
-    <iframe id="fittingRoom"
-            allow="camera">
-    </iframe>
-</div>
-```
-
 ```javascript
-const iframe = document.getElementById('fittingRoom')
+ const iframe = document.createElement('iframe')
+// camera access is required
+iframe.allow = 'camera'
 iframe.src = vfrLink
 ```
 
