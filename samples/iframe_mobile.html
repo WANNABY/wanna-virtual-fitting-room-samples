@@ -51,16 +51,10 @@
 <button id="tryOnButton">Try on</button>
 
 <div id="tryOnDialog" role="dialog" class="modal hidden">
-  <iframe id="wannaIframe"
-          allow="camera"
-          class="modal__iframe">
-  </iframe>
-
   <button id="closeButton" class="modal__close"></button>
 </div>
 
 <script>
-  const iframe = document.getElementById('wannaIframe')
   const dialog = document.getElementById('tryOnDialog')
   const closeButton = document.getElementById('closeButton')
   const tryOnButton = document.getElementById('tryOnButton')
@@ -68,14 +62,31 @@
   // replace this link with the link to your Fitting Room
   const vfrLink = 'https://demo.ar.wanna.fashion'
 
+  function createIframe() {
+    const iframe = document.createElement('iframe')
+    // camera access is required
+    iframe.allow = 'camera'
+    iframe.classList.add('modal__iframe')
+    iframe.src = vfrLink
+    return iframe
+  }
+
+  let iframe = null
+
   tryOnButton.addEventListener('click', () => {
-    if (!iframe.src) {
-      iframe.src = vfrLink
+    if (iframe) {
+      dialog.removeChild(iframe)
     }
+    iframe = createIframe()
+    dialog.appendChild(iframe)
     dialog.classList.remove('hidden')
   })
 
   closeButton.addEventListener('click', () => {
+    if (iframe) {
+      dialog.removeChild(iframe)
+      iframe = null
+    }
     dialog.classList.add('hidden')
   })
 </script>
