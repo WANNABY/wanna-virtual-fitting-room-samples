@@ -56,7 +56,9 @@ Add query parameters to the link to configure the component behavior. Virtual Fi
 
 For example, the following link will show only two models to be tried on in the Virtual Fitting Room, start with the second one, and display the interface and page metadata in German: 
 
-`https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&locale=de`
+```
+https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&locale=de
+```
 
 The following link will show the tutorial when 3D Viewer is loaded and display the interface and page metadata in Italian:
 
