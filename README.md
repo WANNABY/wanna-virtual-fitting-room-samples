@@ -62,13 +62,15 @@ https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&local
 
 The following link will show the tutorial when 3D Viewer is loaded and display the interface and page metadata in Italian:
 
-`https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=it`
+```
+https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=it
+```
 
 ### Get the current model ID
 
 **Note:** This section only makes sense for Virtual Fitting Room, as in 3D Viewer you're always loading a single model and know its identifier.
 
-It should be easy for the user to buy or add to favorites the model they're trying on. You may want to add, for example, an "Add to cart" button to the page footer. To do that, you will need to get in real time the identifier of the model that is being tried on now. Listen to events from the fitting room. Virtual Fitting Room raises the `MODEL_SET` event that contains the ID of the model that is currently loaded. The `data` property of event has following properties:
+It should be easy for the user to buy or add to favorites the model they're trying on. You may want, for example, to put an "Add to cart" button in the page footer. To do that, you will need to get in real time the identifier of the model that is being tried on now. Listen to events from the fitting room. Virtual Fitting Room raises the `MODEL_SET` event that contains the ID of the model that is currently loaded. The `data` property of event has following properties:
 
 - `event` (type `string`) — the name of the event
 - `data` (type `object`) — the event data
@@ -100,4 +102,4 @@ Consult also [our demo sample](samples/iframe_mobile.html) which shows the simpl
 
 On the product page from which you would like the client to start virtual try-on, display a QR code that the client can scan with their phone and go directly to Virtual Fitting Room on mobile. [Our sample](samples/desktop.html) uses the open-source [QR-Code-generator](https://github.com/nayuki/QR-Code-generator) library for demo purposes. Choose any QR code generating tool that suits you.
 
-For the 3D Viewer component, integrate the iframe in the same way as you would on mobile. The only difference is be that you set the `viewmode` query parameter to `desktop` instead of `mobile`.
+For the 3D Viewer component, integrate the iframe in the same way as you would [on mobile](#mobile-show-the-fitting-room). The only difference is be that you set the `viewmode` query parameter to `desktop` instead of `mobile`.
