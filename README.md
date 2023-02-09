@@ -46,13 +46,13 @@ iframe.src = vfrLink
 
 Add query parameters to the link to configure the component behavior. Virtual Try-On and 3D Viewer parameters differ slightly.
 
-| Parameter               | Virtual Try-On    | 3D Viewer                 | Description                                                                                      |
-|-------------------------| :---------------: | :-----------------------: |--------------------------------------------------------------------------------------------------|
-| `modelid`, **required** | **+**<br />a list | **+**<br />a single value | The model identifiers for the models that should be displayed in the component.                                   |
-| `startwithid`           | **+**             | **-**                     | The identifier of the model that should be loaded first. Note that the order of the models won't change. |
-| `showonboarding`        | **-**             | **+**                     | Indicates if the 3D Viewer should display a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer, this parameter will help you show the tutorial only for the first visit of the user. The only possible value is `3d`. |
-| `viewmode`              | **-**             | **+**                     | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`. |
-| `locale`                | **+**             | **+**                     | The locale code for the UI language and metadata. If the specified locale isn't available, English will be used instead. |      
+| Parameter               | Virtual Try-On    | 3D Viewer                               | Description                                                                                      |
+|-------------------------| :---------------: | :-------------------------------------: |--------------------------------------------------------------------------------------------------|
+| `modelid`               | **+**<br />a list | **+**<br />a single value, **required** | The model identifiers for the models that should be displayed in the component.                  |
+| `startwithid`           | **+**             | **-**                                   | The identifier of the model that should be loaded first. Note that the order of the models won't change. |
+| `showonboarding`        | **-**             | **+**                                   | Indicates if the 3D Viewer should display a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer, this parameter will help you show the tutorial only for the first visit of the user. The only possible value is `3d`. |
+| `viewmode`              | **-**             | **+**                                   | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`. |
+| `locale`                | **+**             | **+**                                   | The locale code for the UI language and metadata. If the specified locale isn't available, English will be used instead. |      
 
 For example, the following link will show only two models to be tried on in Virtual Fitting Room, start with the second one, and display the interface and page metadata in German: 
 
@@ -103,3 +103,11 @@ Consult also [our demo sample](samples/iframe_mobile.html) which shows the simpl
 On the product page from which you would like the client to start virtual try-on, display a QR code that the client can scan with their phone and go directly to Virtual Fitting Room on mobile. [Our sample](samples/desktop.html) uses the open-source [QR-Code-generator](https://github.com/nayuki/QR-Code-generator) library for demo purposes. Choose any QR code generating tool that suits you.
 
 For the 3D Viewer component, integrate the iframe in the same way as you would [on mobile](#mobile-show-the-fitting-room). The only difference is be that you set the `viewmode` query parameter to `desktop` instead of `mobile`.
+
+The product catalog page with the button to start 3D Viewer could look like this:
+
+![catalog page with 3D view button](images/desktop_product_page.png)
+
+3D Viewer with `desktop` view mode on will look like this, with plus/minus buttons and a button for closing the viewer:
+
+![3D Viewer loaded with desktop settings](images/desktop_3dviewer.png)
