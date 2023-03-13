@@ -2,7 +2,7 @@
 
 WANNA Virtual Fitting Room (VFR) is a low-code solution with a customizable prebuilt UI. To integrate it into your website, you only need to add an iframe to the page. The user will be able to try on the products in real time using their smartphone camera and to explore the 3D image of the product on a separate screen.
 
-Virtual Fitting Room lets the users try on footwear and watches. For watches, the size of the watch face is essential in the look. That's why the fitting room provides the tool to measure the user's wrist size, then loads the model of the appropriate size to let the user see a realistic picture of the watch on their wrist.
+Virtual Fitting Room lets the users try on footwear and watches in augmented reality. For watches, the size of the watch face is essential in the look. That's why the fitting room provides the tool to measure the user's wrist size, then loads the model of the appropriate size to let the user see a realistic picture of the watch on their wrist.
 
 The 3D Viewer offers an ability to look at all sides of a handbag 3D model and get a feel for its size with the dimension rulers and objects that could fit into the bag.
 
@@ -50,13 +50,13 @@ iframe.src = vfrLink
 
 ### Iframe settings
 
-Add query parameters to the link to configure the component behavior. Virtual Try-On and 3D Viewer parameters differ slightly.
+Add query parameters to the link to configure the component behavior. Virtual try-on and 3D Viewer parameters differ slightly.
 
-| Parameter             | Virtual Try-On    | 3D Viewer                               | Description                                                                                      |
+| Parameter             | Virtual try-on    | 3D Viewer                               | Description                                                                                      |
 |-----------------------| :---------------: | :-------------------------------------: |--------------------------------------------------------------------------------------------------|
 | `modelid`             | **+**<br />a list | **+**<br />a single value, **required** | The model identifiers for the models that should be displayed in the component.                  |
 | `startwithid`         | **+**             | **-**                                   | The identifier of the model that should be loaded first. Note that the order of the models won't change. |
-| `showonboarding`      | **+**<br />watches only | **+**                             | Indicates if the user will see a small tutorial at the start. If you use cookies to remember if the user has already interacted the 3D Viewer or tried on a watch, this parameter will help you show the tutorial only for the first visit of the user.<br />The possible values are: `3d` for 3D Viewer, `wristmeasurement` for Virtual Try-On that lets the user measure their wrist before trying on a watch. |
+| `showonboarding`      | **+**<br />watches only | **+**                             | Indicates if the user will see a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer or tried on a watch, this parameter will help you show the tutorial only for the first visit of the user.<br />The possible values are: `3d` for 3D Viewer, `wristmeasurement` for virtual try-on that lets the user measure their wrist before trying on a watch. |
 | `viewmode`            | **-**             | **+**                                   | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`. |
 | `wristmeasurement`    | **+**             | **-**                                   | Specifies if the fitting room should display the wrist measurement tool. Only makes sense for watch virtual try-on. The possible values are `true` or `false`. |
 | `wristsize`           | **+**             | **-**                                   | Sets the user's wrist size for watch virtual try-on, as an integer. Works only if `wristmeasurement` query parameter is `true`. |
@@ -76,7 +76,7 @@ https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=i
 
 ### Get the current model ID
 
-**Note:** This section only makes sense for Virtual Try-On, as in 3D Viewer you're always loading a single model and know its identifier.
+**Note:** This section only makes sense for virtual try-on, as in 3D Viewer you're always loading a single model and know its identifier.
 
 It should be easy for the user to buy or add to favorites the model they're trying on. You may want, for example, to put an "Add to cart" button in the page footer. To do that, you will need to get in real time the identifier of the model that is being tried on now. Listen to events from the fitting room. Virtual Fitting Room raises the `MODEL_SET` event that contains the ID of the model that is currently loaded. 
 
@@ -129,7 +129,7 @@ The `data` property of the Virtual Fitting Room events has the following propert
 
 On the product page from which you would like the client to start virtual try-on, display a QR code that the client can scan with their phone and go directly to Virtual Fitting Room on mobile. [Our sample](samples/desktop.html) uses the open-source [QR-Code-generator](https://github.com/nayuki/QR-Code-generator) library for demo purposes. Choose any QR code generating tool that suits you.
 
-For the 3D Viewer component, integrate the iframe in the same way as you would [on mobile](#mobile-show-the-fitting-room). The only difference is be that you set the `viewmode` query parameter to `desktop` instead of `mobile`.
+For the 3D Viewer component, integrate the iframe in the same way as you would [on mobile](#mobile-show-the-fitting-room). The only difference is that you set the `viewmode` query parameter to `desktop` instead of `mobile`.
 
 The product catalog page with the button to start 3D Viewer could look like this:
 
