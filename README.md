@@ -11,7 +11,7 @@ The 3D Viewer offers an ability to look at all sides of a handbag 3D model and g
 - [Mobile: show the fitting room](#mobile-show-the-fitting-room)
 	- [Iframe settings](#iframe-settings)
 	- [Get the current model ID](#get-the-current-model-id)
-	- [Save the user's wrist size](#save-the-user-s-wrist-size)
+	- [Save the user's wrist size](#save-the-users-wrist-size)
 	- [Events](#events)
 - [Desktop: display a QR code](#desktop-display-a-qr-code)
 <!-- /TOC -->
