@@ -95,7 +95,7 @@ window.addEventListener('message', event => {
 
 ### Save the user's wrist size
 
-If the user returns to virtual try-on after they have already measured their wrist size, they wouldn't like to have to do it again. To save them from the annoyance, store the wrist size after the successful measurement and pass it as `wristsize` query parameter next time you're loading Virtual Fitting Room for the same user. To retrieve the wrist size, handle the `WRIST_MEASURED` event from the fitting room and get the `size` it contains.
+If the user returns to virtual try-on after they already measured their wrist size once, they wouldn't like to have to do it again. To save them from the annoyance, store the wrist size after the successful measurement and pass it as `wristsize` query parameter next time you're loading Virtual Fitting Room for the same user. To retrieve the wrist size, handle the `WRIST_MEASURED` event from the fitting room and get the `size` it contains.
 
 ```javascript
 window.addEventListener('message', event => {
