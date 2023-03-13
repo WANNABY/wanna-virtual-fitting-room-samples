@@ -36,7 +36,7 @@ We recommend the first option, as it ensures the best user experience and more l
 First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
 
 ```javascript
- const iframe = document.createElement('iframe')
+const iframe = document.createElement('iframe')
 // camera access is required
 iframe.allow = 'camera'
 iframe.src = vfrLink
@@ -87,9 +87,11 @@ Here's a code snippet that shows how to subscribe to events:
 window.addEventListener('message', event => {
   if (event.origin === vfrOrigin /* the origin of WANNA VFR, for example https://demo.ar.wanna.fashion */) {
     const eventName = event.data.name
-    const data = event.data.data
-    const model = data.modelId
-    // use the model identifier, for example to find the link to the product page
+    if (eventName === 'MODEL_SET') {
+      const data = event.data.data
+      const model = data.modelId
+      // use the model identifier, for example to find the link to the product page  
+    }
   }
 })
 ```
