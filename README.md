@@ -87,7 +87,6 @@ window.addEventListener('message', event => {
   if (event.origin === vfrOrigin /* the origin of WANNA VFR, for example https://demo.ar.wanna.fashion */) {
     const eventName = event.data.name
     if (eventName === 'MODEL_SET') {
-      const data = event.data.data
       const model = data.modelId
       // use the model identifier, for example to find the link to the product page  
     }
@@ -103,11 +102,10 @@ If the user returns to virtual try-on after they already measured their wrist si
 window.addEventListener('message', event => {
   if (event.origin === vfrOrigin /* the origin of WANNA VFR, for example https://demo.ar.wanna.fashion */) {
     const eventName = event.data.name
-    const data = event.data.data
     if (eventName === 'WRIST_MEASURED') {
       const data = event.data.data
       const wristSize = data.size
-      // save the wrist size somewhere in cookies  
+      // save the wrist size somewhere so that you can reuse it  
     }
   }
 }
