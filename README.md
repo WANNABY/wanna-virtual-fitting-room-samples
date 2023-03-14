@@ -39,6 +39,8 @@ We recommend the first option, as it ensures the best user experience and more l
 
 **Important!** The iframe should have camera access. Specify it in the `allow` attribute, and the browser will ask the user for permission to access the camera.
 
+For watch virtual try-on, the fitting room will additionally ask the user to allow access to their device specifications, including the IP address and some technical information. If they don't grant this permission, WANNA will be unable to show the wrist measurement tool and will use the watch models of the default size.
+
 First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
 
 ```javascript
@@ -58,7 +60,7 @@ Add query parameters to the link to configure the component behavior. Virtual tr
 | `startwithid`         | **+**             | **-**                                   | The identifier of the model that should be loaded first. Note that the order of the models won't change. |
 | `showonboarding`      | **+**<br />watches only | **+**                             | Indicates if the user will see a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer or tried on a watch, this parameter will help you show the tutorial only for the first visit of the user.<br />The possible values are: `3d` for 3D Viewer, `wristmeasurement` for virtual try-on that lets the user measure their wrist before trying on a watch. |
 | `viewmode`            | **-**             | **+**                                   | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`. |
-| `wristmeasurement`    | **+**             | **-**                                   | Specifies if the fitting room should display the wrist measurement tool. Only makes sense for watch virtual try-on. The possible values are `true` or `false`. |
+| `wristmeasurement`    | **+**             | **-**                                   | Specifies if the fitting room should display the wrist measurement tool. Only makes sense for watch virtual try-on. The possible values are `true` or `false`. If you set it to `false`, the user will try on watch models of the default size. |
 | `wristsize`           | **+**             | **-**                                   | Sets the user's wrist size for watch virtual try-on, as an integer. Works only if `wristmeasurement` query parameter is `true`. |
 | `locale`              | **+**             | **+**                                   | The locale code for the UI language and metadata. If the specified locale isn't available, English will be used instead. |      
 
@@ -95,7 +97,7 @@ window.addEventListener('message', event => {
 
 ### Save the user's wrist size
 
-If the user returns to virtual try-on after they already measured their wrist size once, they wouldn't like to have to do it again. To save them from the annoyance, store the wrist size after the successful measurement and pass it as `wristsize` query parameter next time you're loading Virtual Fitting Room for the same user. To retrieve the wrist size, handle the `WRIST_MEASURED` event from the fitting room and get the `size` it contains.
+If the user returns to virtual try-on after they already measured their wrist size once, they wouldn't like to have to do it again. To save them from the annoyance, store the wrist size after successful measurement and pass it as `wristsize` query parameter next time you're loading Virtual Fitting Room for the same user. To retrieve the wrist size, handle the `WRIST_MEASURED` event from the fitting room and get the `size` it contains. The size is an integer number that isn't counted in real-life measurement units but only makes sense for internal use in WANNA SDK.
 
 ```javascript
 window.addEventListener('message', event => {
@@ -121,7 +123,7 @@ The `data` property of the Virtual Fitting Room events has the following propert
 | Event name       | Description                                    | Data properties                                  |
 |------------------|------------------------------------------------|--------------------------------------------------|
 | `MODEL_SET`      | The model that is currently loaded for try-on. | `modelId` (type `string`) — the model identifier |
-| `WRIST_MEASURED` | The size of the user's wrist.                  | `size` (type `number`) — the user's wrist, in    |
+| `WRIST_MEASURED` | The size of the user's wrist.                  | `size` (type `number`) — the user's wrist size.  |
 
 **Important!** Events are only available for iframe. If you're simply redirecting to Virtual Fitting Room, you won't be able to listen to events and obtain the model ID or the wrist size using this method.
 
