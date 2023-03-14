@@ -87,6 +87,7 @@ window.addEventListener('message', event => {
   if (event.origin === vfrOrigin /* the origin of WANNA VFR, for example https://demo.ar.wanna.fashion */) {
     const eventName = event.data.name
     if (eventName === 'MODEL_SET') {
+      const data = event.data.data
       const model = data.modelId
       // use the model identifier, for example to find the link to the product page  
     }
