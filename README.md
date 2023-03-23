@@ -54,26 +54,40 @@ iframe.src = vfrLink
 
 Add query parameters to the link to configure the component behavior. Virtual try-on and 3D Viewer parameters differ slightly.
 
-| Parameter             | Virtual try-on    | 3D Viewer                               | Description                                                                                      |
-|-----------------------| :---------------: | :-------------------------------------: |--------------------------------------------------------------------------------------------------|
-| `modelid`             | **+**<br />a list | **+**<br />a single value, **required** | The model identifiers for the models that should be displayed in the component.                  |
-| `startwithid`         | **+**             | **-**                                   | The identifier of the model that should be loaded first. Note that the order of the models won't change. |
-| `showonboarding`      | **+**<br />watches only | **+**                             | Indicates if the user will see a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer or tried on a watch, this parameter will help you show the tutorial only for the first visit of the user.<br />The possible values are: `3d` for 3D Viewer, `wristmeasurement` for virtual try-on that lets the user measure their wrist before trying on a watch. |
-| `viewmode`            | **-**             | **+**                                   | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`. |
-| `wristmeasurement`    | **+**             | **-**                                   | Specifies if the fitting room should display the wrist measurement tool. Only makes sense for watch virtual try-on. The possible values are `true` or `false`. If you set it to `false`, the user will try on watch models of the default size. |
-| `wristsize`           | **+**             | **-**                                   | Sets the user's wrist size for watch virtual try-on, as an integer. Works only if `wristmeasurement` query parameter is `true`. |
-| `locale`              | **+**             | **+**                                   | The locale code for the UI language and metadata. If the specified locale isn't available, English will be used instead. |      
+| Parameter             | Virtual try-on    | 3D Viewer               | Description                                                                                      |
+|-----------------------| :---------------: | :---------------------: |--------------------------------------------------------------------------------------------------|
+| `modelid`             | **+**<br />a list | **+**<br />a single value, **required** | The model identifiers for the models that should be displayed in the component.<br />The default virtual try-on is to show the first three models available in the fitting room. |
+| `startwithid`         | **+**             | **-**                   | The identifier of the model that should be loaded first. Note that the order of the models won't change.<br />The default is the first model in the list. |
+| `showonboarding`      | **+**<br />watches only | **+**             | Indicates if the user will see a small tutorial at the start. If you use cookies to remember if the user has already interacted with 3D Viewer or tried on a watch, this parameter will help you show the tutorial only for the first visit of the user.<br />The possible values are: `3d` for 3D Viewer, `wristmeasurement` for virtual try-on that lets the user measure their wrist before trying on a watch.<br />The default is to show no tutorial. |
+| `viewmode`            | **-**             | **+**                   | Specifies if the 3D Viewer is loaded on a desktop or a mobile device. It has small UI differences to improve the user experience. The possible values are: `desktop` or `mobile`.<br />The default value is `mobile`. |
+| `wristmeasurement`    | **+**             | **-**                   | Specifies if the fitting room should display the wrist measurement tool. Only makes sense for watch virtual try-on. The possible values are `true` or `false`. If you set it to `false`, the user will try on watch models of the default size.<br />The default is `false`. |
+| `wristsize`           | **+**             | **-**                   | Sets the user's wrist size for watch virtual try-on, as an integer. Works only if `wristmeasurement` query parameter is `true`.<br />The default value is 40, which is the average wrist size that the default watch models are adjusted for. |
+| `locale`              | **+**             | **+**                   | The locale code for the UI language and metadata. If the specified locale isn't available, the default English locale will be used instead. |      
 
-For example, the following link will show only two models to be tried on in Virtual Fitting Room, start with the second one, and display the interface and page metadata in German: 
+#### Examples
+
+Show only two models to be tried on in Virtual Fitting Room, start with the second one, and display the interface and page metadata in German: 
 
 ```
 https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&locale=de
 ```
 
-The following link will show the tutorial when 3D Viewer is loaded and display the interface and page metadata in Italian:
+Show the tutorial when 3D Viewer is loaded and display the interface and page metadata in Italian:
 
 ```
 https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=it
+```
+
+Show the virtual try-on for watches with tutorial and wrist measurement tool:
+
+```
+https://demo.ar.wanna.fashion/?showonboarding=wristmeasurement&wristmeasurement=true
+```
+
+Show the virtual try-on for watches with no tutorial, wrist size already known, and display the interface and page metadata in Spanish:
+
+```
+https://demo.ar.wanna.fashion/?wristmeasurement=true&wristsize=50&locale=es
 ```
 
 ### Get the current model ID
