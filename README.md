@@ -81,13 +81,13 @@ https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=i
 Show the virtual try-on for watches with tutorial and wrist measurement tool:
 
 ```
-https://demo.ar.wanna.fashion/?showonboarding=wristmeasurement&wristmeasurement=true
+https://demo-watch.ar.wanna.fashion/?showonboarding=wristmeasurement&wristmeasurement=true
 ```
 
 Show the virtual try-on for watches with no tutorial, wrist size already known, and display the interface and page metadata in Spanish:
 
 ```
-https://demo.ar.wanna.fashion/?wristmeasurement=true&wristsize=50&locale=es
+https://demo-watch.ar.wanna.fashion/?wristmeasurement=true&wristsize=50&locale=es
 ```
 
 ### Get the current model ID
