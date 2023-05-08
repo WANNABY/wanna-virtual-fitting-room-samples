@@ -1,0 +1,272 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2023-05-08 07:32:01",
+    "containerVersion": {
+        "path": "accounts/6093045107/containers/113115696/versions/0",
+        "accountId": "6093045107",
+        "containerId": "113115696",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6093045107/containers/113115696",
+            "accountId": "6093045107",
+            "containerId": "113115696",
+            "name": "wanna-test",
+            "publicId": "GTM-NF75RCF",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1681904751376",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6093045107/containers/113115696/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true
+            },
+            "tagIds": [
+                "GTM-NF75RCF"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "tagId": "7",
+                "name": "WANNA VFR Google Analytics 4 Events",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "{{wanna_event_display_name}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventParameters",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "name",
+                                        "value": "wanna_model_id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{wanna_model_id}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "name",
+                                        "value": "wanna_poi_index"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{wanna_poi_index}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementId",
+                        "value": "none"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-1111111111"
+                    }
+                ],
+                "fingerprint": "1683530979619",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "parentFolderId": "12",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "tagId": "8",
+                "name": "WANNA VFR Event Listener",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script type=\"text/javascript\">\n(function(window) {\n  addEvent(window, 'message', function(message) {\n    try {\n      var data = message.data;\n      var wannaEventPrefix = 'wanna_vfr_analytics_';\n      var dataLayer = window.dataLayer || (window.dataLayer = []);\n      if (data.event && data.event.indexOf(wannaEventPrefix) === 0) {\n        dataLayer.push(\n          assign(\n            // nullify params to prevent GTM sending previous values when no value specified\n            {\n              wanna_model_id: null,\n              wanna_poi_index: null,\n              wanna_event_display_name: data.event.replace(wannaEventPrefix, 'wanna_')\n            },\n            data\n          )\n        );\n      }\n    } catch (e) {\n      console.warning('WANNA VFR Analytics script failed.', e);\n    }\n  });\n\n  // Cross-browser event listener\n  function addEvent(el, evt, fn) {\n    if (el.addEventListener) {\n      el.addEventListener(evt, fn);\n    } else if (el.attachEvent) {\n      el.attachEvent('on' + evt, function(evt) {\n        fn.call(el, evt);\n      });\n    } else if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {\n      el['on' + evt] = function(evt) {\n        fn.call(el, evt);\n      };\n    }\n  }\n  \n  // ES5 Object.assign equivalent\n  function assign() {\n    var resObj = {};\n    for(var i=0; i < arguments.length; i += 1) {\n         var obj = arguments[i],\n             keys = Object.keys(obj);\n         for(var j=0; j < keys.length; j += 1) {\n             resObj[keys[j]] = obj[keys[j]];\n         }\n    }\n    return resObj;\n  }\n})(window);\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1683117802002",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "parentFolderId": "12",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "triggerId": "4",
+                "name": "WANNA VFR Events",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "wanna_vfr_analytics_"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1681917827603",
+                "parentFolderId": "12"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "variableId": "5",
+                "name": "wanna_model_id",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_model_id"
+                    }
+                ],
+                "fingerprint": "1682061781327",
+                "parentFolderId": "12",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "variableId": "13",
+                "name": "wanna_event_display_name",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_event_display_name"
+                    }
+                ],
+                "fingerprint": "1682073963797",
+                "parentFolderId": "12",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "variableId": "14",
+                "name": "wanna_poi_index",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_poi_index"
+                    }
+                ],
+                "fingerprint": "1683117751998",
+                "parentFolderId": "12",
+                "formatValue": {}
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "folderId": "12",
+                "name": "WANNA VFR",
+                "fingerprint": "1681914850242"
+            }
+        ],
+        "fingerprint": "1683531121366",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6093045107/containers/113115696/versions/0?apiLink=version"
+    }
+}
