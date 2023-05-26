@@ -37,16 +37,18 @@ The essential part of integration is simply to load Virtual Fitting Room into an
 
 We recommend the first option, as it ensures the best user experience and more likely conversion of try-on into purchase. Let's walk through the process.
 
-**Important!** The iframe should have camera access. Specify it in the `allow` attribute, and the browser will ask the user for permission to access the camera.
+First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute.
 
-For watch virtual try-on, the fitting room will additionally ask the user to allow access to their device specifications, including the IP address and some technical information. If they don't grant this permission, WANNA will be unable to show the wrist measurement tool and will use the watch models of the default size.
+**Important!** The following permission policies apply:
 
-First, create an iframe element on the page and put the link to your Virtual Fitting Room into its `src` attribute:
+1. The iframe should have camera access. Specify it in the `allow` attribute, and the browser will ask the user for permission to access the camera. 
+2. The current versions of most browsers will require explicit permission for web share in your iframe. Set it in the same `allow` attribute, as shown in the code snippet.
+3. For watch virtual try-on, the fitting room will additionally ask the user to allow access to their device specifications, including the IP address and some technical information. If they don't grant this permission, WANNA will be unable to show the wrist measurement tool and will use the watch models of the default size.
 
 ```javascript
  const iframe = document.createElement('iframe')
-// camera access is required
-iframe.allow = 'camera'
+// camera access and web share permission are required
+iframe.allow = "camera; web-share"
 iframe.src = vfrLink
 ```
 
