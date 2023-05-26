@@ -65,7 +65,7 @@
   function createIframe() {
     const iframe = document.createElement('iframe')
     // camera access is required
-    iframe.allow = 'camera'
+    iframe.allow = 'camera;web-share'
     iframe.classList.add('modal__iframe')
     iframe.src = vfrLink
     return iframe
