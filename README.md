@@ -77,7 +77,7 @@ https://demo.ar.wanna.fashion/?modelid=wanna01,wanna02&startwithid=wanna02&local
 Show the tutorial when 3D Viewer is loaded and display the interface and page metadata in Italian:
 
 ```
-https://bags-demo.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=it
+https://demo-bag.ar.wanna.fashion/?modelid=wanna_bag&showonboarding=3d&locale=it
 ```
 
 Show the virtual try-on for watches with tutorial and wrist measurement tool:
