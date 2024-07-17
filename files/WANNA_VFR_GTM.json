@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2024-07-15 11:00:00",
+    "exportTime": "2024-07-17 15:06:19",
     "containerVersion": {
         "path": "accounts/6093045107/containers/113115696/versions/30",
         "accountId": "6093045107",
@@ -118,6 +118,21 @@
                                         "value": "{{wanna_style_index}}"
                                     }
                                 ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_facing_mode"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_facing_mode}}"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -150,7 +165,7 @@
                     {
                         "type": "TEMPLATE",
                         "key": "html",
-                        "value": "<script type=\"text/javascript\">\n(function(window) {\n  addEvent(window, 'message', function(message) {\n    try {\n      var data = message.data;\n      var wannaEventPrefix = 'wanna_vfr_analytics_';\n      var dataLayer = window.dataLayer || (window.dataLayer = []);\n      if (data.event && data.event.indexOf(wannaEventPrefix) === 0) {\n        dataLayer.push(\n          assign(\n            // nullify params to prevent GTM sending previous values when no value specified\n            {\n              wanna_model_id: null,\n              wanna_link: null,\n              wanna_poi_index: null,\n              wanna_style_index: null,\n              wanna_event_display_name: data.event.replace(wannaEventPrefix, 'wanna_')\n            },\n            data\n          )\n        );\n      }\n    } catch (e) {\n      console.warning('WANNA VFR Analytics script failed.', e);\n    }\n  });\n\n  // Cross-browser event listener\n  function addEvent(el, evt, fn) {\n    if (el.addEventListener) {\n      el.addEventListener(evt, fn);\n    } else if (el.attachEvent) {\n      el.attachEvent('on' + evt, function(evt) {\n        fn.call(el, evt);\n      });\n    } else if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {\n      el['on' + evt] = function(evt) {\n        fn.call(el, evt);\n      };\n    }\n  }\n  \n  // ES5 Object.assign equivalent\n  function assign() {\n    var resObj = {};\n    for(var i=0; i < arguments.length; i += 1) {\n         var obj = arguments[i],\n             keys = Object.keys(obj);\n         for(var j=0; j < keys.length; j += 1) {\n             resObj[keys[j]] = obj[keys[j]];\n         }\n    }\n    return resObj;\n  }\n})(window);\n</script>"
+                        "value": "<script type=\"text/javascript\">\n(function(window) {\n  addEvent(window, 'message', function(message) {\n    try {\n      var data = message.data;\n      var wannaEventPrefix = 'wanna_vfr_analytics_';\n      var dataLayer = window.dataLayer || (window.dataLayer = []);\n      if (data.event && data.event.indexOf(wannaEventPrefix) === 0) {\n        dataLayer.push(\n          assign(\n            // nullify params to prevent GTM sending previous values when no value specified\n            {\n              wanna_model_id: null,\n              wanna_link: null,\n              wanna_poi_index: null,\n              wanna_style_index: null,\n              wanna_facing_mode: null,\n              wanna_event_display_name: data.event.replace(wannaEventPrefix, 'wanna_')\n            },\n            data\n          )\n        );\n      }\n    } catch (e) {\n      console.warning('WANNA VFR Analytics script failed.', e);\n    }\n  });\n\n  // Cross-browser event listener\n  function addEvent(el, evt, fn) {\n    if (el.addEventListener) {\n      el.addEventListener(evt, fn);\n    } else if (el.attachEvent) {\n      el.attachEvent('on' + evt, function(evt) {\n        fn.call(el, evt);\n      });\n    } else if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {\n      el['on' + evt] = function(evt) {\n        fn.call(el, evt);\n      };\n    }\n  }\n  \n  // ES5 Object.assign equivalent\n  function assign() {\n    var resObj = {};\n    for(var i=0; i < arguments.length; i += 1) {\n         var obj = arguments[i],\n             keys = Object.keys(obj);\n         for(var j=0; j < keys.length; j += 1) {\n             resObj[keys[j]] = obj[keys[j]];\n         }\n    }\n    return resObj;\n  }\n})(window);\n</script>"
                     },
                     {
                         "type": "BOOLEAN",
@@ -333,6 +348,33 @@
                     }
                 ],
                 "fingerprint": "1721034978526",
+                "parentFolderId": "12",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6093045107",
+                "containerId": "113115696",
+                "variableId": "15",
+                "name": "wanna_facing_mode",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_facing_mode"
+                    }
+                ],
+                "fingerprint": "1721228746881",
                 "parentFolderId": "12",
                 "formatValue": {}
             }
