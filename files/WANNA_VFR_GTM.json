@@ -1,22 +1,22 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2023-07-05 08:41:14",
+    "exportTime": "2024-07-22 06:54:08",
     "containerVersion": {
-        "path": "accounts/6093045107/containers/113115696/versions/30",
-        "accountId": "6093045107",
-        "containerId": "113115696",
-        "containerVersionId": "30",
+        "path": "accounts/6242515714/containers/191425887/versions/0",
+        "accountId": "6242515714",
+        "containerId": "191425887",
+        "containerVersionId": "0",
         "container": {
-            "path": "accounts/6093045107/containers/113115696",
-            "accountId": "6093045107",
-            "containerId": "113115696",
-            "name": "wanna-test",
-            "publicId": "GTM-NF75RCF",
+            "path": "accounts/6242515714/containers/191425887",
+            "accountId": "6242515714",
+            "containerId": "191425887",
+            "name": "default",
+            "publicId": "GTM-5BDVMRK8",
             "usageContext": [
                 "WEB"
             ],
-            "fingerprint": "1681904751376",
-            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6093045107/containers/113115696/workspaces?apiLink=container",
+            "fingerprint": "1721631216730",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6242515714/containers/191425887/workspaces?apiLink=container",
             "features": {
                 "supportUserPermissions": true,
                 "supportEnvironments": true,
@@ -34,94 +34,33 @@
                 "supportTransformations": false
             },
             "tagIds": [
-                "GTM-NF75RCF"
+                "GTM-5BDVMRK8"
             ]
         },
         "tag": [
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "tagId": "7",
-                "name": "WANNA VFR Google Analytics 4 Events",
-                "type": "gaawe",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "tagId": "8",
+                "name": "WANNA VFR Event Listener",
+                "type": "html",
                 "parameter": [
                     {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script type=\"text/javascript\">\n(function(window) {\n  addEvent(window, 'message', function(message) {\n    try {\n      var data = message.data;\n      var wannaEventPrefix = 'wanna_vfr_analytics_';\n      var dataLayer = window.dataLayer || (window.dataLayer = []);\n      if (data.event && data.event.indexOf(wannaEventPrefix) === 0) {\n        dataLayer.push(\n          assign(\n            // nullify params to prevent GTM sending previous values when no value specified\n            {\n              wanna_model_id: null,\n              wanna_link: null,\n              wanna_poi_index: null,\n              wanna_style_index: null,\n              wanna_facing_mode: null,\n              wanna_event_display_name: data.event.replace(wannaEventPrefix, 'wanna_')\n            },\n            data\n          )\n        );\n      }\n    } catch (e) {\n      console.warning('WANNA VFR Analytics script failed.', e);\n    }\n  });\n\n  // Cross-browser event listener\n  function addEvent(el, evt, fn) {\n    if (el.addEventListener) {\n      el.addEventListener(evt, fn);\n    } else if (el.attachEvent) {\n      el.attachEvent('on' + evt, function(evt) {\n        fn.call(el, evt);\n      });\n    } else if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {\n      el['on' + evt] = function(evt) {\n        fn.call(el, evt);\n      };\n    }\n  }\n  \n  // ES5 Object.assign equivalent\n  function assign() {\n    var resObj = {};\n    for(var i=0; i < arguments.length; i += 1) {\n         var obj = arguments[i],\n             keys = Object.keys(obj);\n         for(var j=0; j < keys.length; j += 1) {\n             resObj[keys[j]] = obj[keys[j]];\n         }\n    }\n    return resObj;\n  }\n})(window);\n</script>"
+                    },
+                    {
                         "type": "BOOLEAN",
-                        "key": "sendEcommerceData",
+                        "key": "supportDocumentWrite",
                         "value": "false"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "eventName",
-                        "value": "{{wanna_event_display_name}}"
-                    },
-                    {
-                        "type": "LIST",
-                        "key": "eventParameters",
-                        "list": [
-                            {
-                                "type": "MAP",
-                                "map": [
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "name",
-                                        "value": "wanna_model_id"
-                                    },
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "value",
-                                        "value": "{{wanna_model_id}}"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "MAP",
-                                "map": [
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "name",
-                                        "value": "wanna_poi_index"
-                                    },
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "value",
-                                        "value": "{{wanna_poi_index}}"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "MAP",
-                                "map": [
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "name",
-                                        "value": "wanna_link"
-                                    },
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "value",
-                                        "value": "{{wanna_link}}"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "measurementId",
-                        "value": "none"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "measurementIdOverride",
-                        "value": "G-1111111111"
                     }
                 ],
-                "fingerprint": "1688546425156",
+                "fingerprint": "1721586444354",
                 "firingTriggerId": [
-                    "4"
+                    "2147479553"
                 ],
-                "parentFolderId": "12",
+                "parentFolderId": "3",
                 "tagFiringOption": "ONCE_PER_EVENT",
                 "monitoringMetadata": {
                     "type": "MAP"
@@ -131,28 +70,114 @@
                 }
             },
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "tagId": "8",
-                "name": "WANNA VFR Event Listener",
-                "type": "html",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "tagId": "14",
+                "name": "WANNA VFR Google Analytics 4 Events",
+                "type": "gaawe",
                 "parameter": [
                     {
-                        "type": "TEMPLATE",
-                        "key": "html",
-                        "value": "<script type=\"text/javascript\">\n(function(window) {\n  addEvent(window, 'message', function(message) {\n    try {\n      var data = message.data;\n      var wannaEventPrefix = 'wanna_vfr_analytics_';\n      var dataLayer = window.dataLayer || (window.dataLayer = []);\n      if (data.event && data.event.indexOf(wannaEventPrefix) === 0) {\n        dataLayer.push(\n          assign(\n            // nullify params to prevent GTM sending previous values when no value specified\n            {\n              wanna_model_id: null,\n              wanna_link: null,\n              wanna_poi_index: null,\n              wanna_event_display_name: data.event.replace(wannaEventPrefix, 'wanna_')\n            },\n            data\n          )\n        );\n      }\n    } catch (e) {\n      console.warning('WANNA VFR Analytics script failed.', e);\n    }\n  });\n\n  // Cross-browser event listener\n  function addEvent(el, evt, fn) {\n    if (el.addEventListener) {\n      el.addEventListener(evt, fn);\n    } else if (el.attachEvent) {\n      el.attachEvent('on' + evt, function(evt) {\n        fn.call(el, evt);\n      });\n    } else if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {\n      el['on' + evt] = function(evt) {\n        fn.call(el, evt);\n      };\n    }\n  }\n  \n  // ES5 Object.assign equivalent\n  function assign() {\n    var resObj = {};\n    for(var i=0; i < arguments.length; i += 1) {\n         var obj = arguments[i],\n             keys = Object.keys(obj);\n         for(var j=0; j < keys.length; j += 1) {\n             resObj[keys[j]] = obj[keys[j]];\n         }\n    }\n    return resObj;\n  }\n})(window);\n</script>"
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
                     },
                     {
-                        "type": "BOOLEAN",
-                        "key": "supportDocumentWrite",
-                        "value": "false"
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_model_id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_model_id}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_poi_index"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_poi_index}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_link"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_link}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_style_index"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_style_index}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "wanna_facing_mode"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{wanna_facing_mode}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "{{wanna_event_display_name}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-1111111111"
                     }
                 ],
-                "fingerprint": "1688546358997",
+                "fingerprint": "1721587072486",
                 "firingTriggerId": [
-                    "2147479553"
+                    "5"
                 ],
-                "parentFolderId": "12",
+                "parentFolderId": "3",
                 "tagFiringOption": "ONCE_PER_EVENT",
                 "monitoringMetadata": {
                     "type": "MAP"
@@ -164,9 +189,9 @@
         ],
         "trigger": [
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "triggerId": "4",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "triggerId": "5",
                 "name": "WANNA VFR Events",
                 "type": "CUSTOM_EVENT",
                 "customEventFilter": [
@@ -186,16 +211,16 @@
                         ]
                     }
                 ],
-                "fingerprint": "1681917827603",
-                "parentFolderId": "12"
+                "fingerprint": "1721586444352",
+                "parentFolderId": "3"
             }
         ],
         "variable": [
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "variableId": "5",
-                "name": "wanna_model_id",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "4",
+                "name": "wanna_facing_mode",
                 "type": "v",
                 "parameter": [
                     {
@@ -211,17 +236,44 @@
                     {
                         "type": "TEMPLATE",
                         "key": "name",
-                        "value": "wanna_model_id"
+                        "value": "wanna_facing_mode"
                     }
                 ],
-                "fingerprint": "1682061781327",
-                "parentFolderId": "12",
+                "fingerprint": "1721586444351",
+                "parentFolderId": "3",
                 "formatValue": {}
             },
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "variableId": "13",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "6",
+                "name": "wanna_style_index",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_style_index"
+                    }
+                ],
+                "fingerprint": "1721586444353",
+                "parentFolderId": "3",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "7",
                 "name": "wanna_event_display_name",
                 "type": "v",
                 "parameter": [
@@ -241,14 +293,41 @@
                         "value": "wanna_event_display_name"
                     }
                 ],
-                "fingerprint": "1682073963797",
-                "parentFolderId": "12",
+                "fingerprint": "1721586444353",
+                "parentFolderId": "3",
                 "formatValue": {}
             },
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "variableId": "14",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "9",
+                "name": "wanna_model_id",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "wanna_model_id"
+                    }
+                ],
+                "fingerprint": "1721586444355",
+                "parentFolderId": "3",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "10",
                 "name": "wanna_poi_index",
                 "type": "v",
                 "parameter": [
@@ -268,14 +347,14 @@
                         "value": "wanna_poi_index"
                     }
                 ],
-                "fingerprint": "1683117751998",
-                "parentFolderId": "12",
+                "fingerprint": "1721586444356",
+                "parentFolderId": "3",
                 "formatValue": {}
             },
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "variableId": "16",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "variableId": "11",
                 "name": "wanna_link",
                 "type": "v",
                 "parameter": [
@@ -295,21 +374,21 @@
                         "value": "wanna_link"
                     }
                 ],
-                "fingerprint": "1688546325697",
-                "parentFolderId": "12",
+                "fingerprint": "1721586444356",
+                "parentFolderId": "3",
                 "formatValue": {}
             }
         ],
         "folder": [
             {
-                "accountId": "6093045107",
-                "containerId": "113115696",
-                "folderId": "12",
+                "accountId": "6242515714",
+                "containerId": "191425887",
+                "folderId": "3",
                 "name": "WANNA VFR",
-                "fingerprint": "1681914850242"
+                "fingerprint": "1721586444350"
             }
         ],
-        "fingerprint": "1688546452222",
-        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6093045107/containers/113115696/versions/30?apiLink=version"
+        "fingerprint": "1721631248558",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6242515714/containers/191425887/versions/0?apiLink=version"
     }
 }
